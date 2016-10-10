@@ -1,0 +1,6 @@
+framework module Pods_03_______Tests {
+  umbrella header "Pods-03_开源中国界面Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

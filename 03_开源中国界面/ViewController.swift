@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
     
@@ -28,6 +29,15 @@ class ViewController: UIViewController {
         tbView?.dataSource = self
         view.addSubview(tbView!)
         
+        Alamofire.request(.GET, "www.baidu.com").responseData{
+            response in
+            switch response.result {
+            case .Failure(let error):
+                print(error)
+            case .Success:
+                print(response.data!)
+            }
+        }
         
         //上拉加载更多
         tbView?.footerView = XWRefreshAutoNormalFooter(target: self, action: #selector(loadNextPage))
